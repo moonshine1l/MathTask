@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.Random;
@@ -24,6 +25,15 @@ public class Controller {
     private Label task;
 
     @FXML
+    private Label message;
+
+    @FXML
+    private TextField answer;
+
+    @FXML
+    private Button checkAnswer;
+
+    @FXML
     void initialize(){
         classSelection.getItems().setAll(
                 1,
@@ -32,6 +42,7 @@ public class Controller {
                 4);
 
         Integer valueClass = classSelection.getValue();
+        int result = Integer.parseInt(task.getText());
 
 
         generate.setOnAction( new EventHandler<ActionEvent>(){
@@ -47,14 +58,20 @@ public class Controller {
                         task.setText(firstTask(0,100));
                         break;
                     case(3):
-                        task.setText(secondTask(0, 500));
+                        task.setText(secondTask(0, 250, 1, 10));
                         break;
                     case(4):
-                        task.setText(secondTask(0,1000));
+                        task.setText(secondTask(0,500,1,10));
                         break;
                 }
+
             }});
 
+        checkAnswer.setOnAction((ActionEvent event) ->
+                if(result == Integer.parseInt(answer.getText())){
+
+                }
+                );
 
     }
     public int getRandomNumber(int min, int max) {
@@ -68,11 +85,11 @@ public class Controller {
         return getRandomNumber(min,max) + operator[select] + (getRandomNumber(min,max)) + "=";
     }
 
-    public String secondTask(int min, int max){
+    public String secondTask(int min, int max, int smin, int smax){
         String [] operator = {"+", "-", "*", ":"};
         Random random = new Random();
         int select = random.nextInt(operator.length);
-        return getRandomNumber(min,max) + operator[select] + (getRandomNumber(min, max)) + "=";
+        return getRandomNumber(min,max) + operator[select] + (getRandomNumber(smin, smax)) + "=";
     }
 }
 
