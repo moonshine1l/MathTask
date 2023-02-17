@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="797.0" style="-fx-background-color: #ccffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.moonshine1l.mathtask.Controller">
    <children>
       <TextField fx:id="answer" layoutX="256.0" layoutY="390.0" prefHeight="43.0" prefWidth="275.0" />
-      <Label fx:id="task" alignment="CENTER" layoutX="69.0" layoutY="271.0" prefHeight="96.0" prefWidth="648.0">
+      <Label fx:id="task" alignment="CENTER" layoutX="70.0" layoutY="231.0" prefHeight="96.0" prefWidth="648.0">
          <font>
             <Font size="36.0" />
          </font>
@@ -32,7 +32,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="generate" layoutX="253.0" layoutY="415.0" mnemonicParsing="false" style="-fx-background-color: #ccffff; -fx-border-color: #000000;" text="Сгенерировать пример" >
+      <Button fx:id="generate" layoutX="247.0" layoutY="319.0" mnemonicParsing="false" style="-fx-background-color: #ccffff; -fx-border-color: #000000;" text="Сгенерировать пример" >
          <font>
             <Font size="24.0" />
          </font>
