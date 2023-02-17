@@ -36,10 +36,10 @@ public class Controller {
                     task.setText(firstTask(0, 100));
                     break;
                 case (3):
-                    task.setText(secondTask(0, 500));
+                    task.setText(secondTask(0, 250, 1,10));
                     break;
                 case (4):
-                    task.setText(secondTask(0, 1000));
+                    task.setText(secondTask(0, 500, 1, 10));
                     break;
             }
         });
@@ -53,14 +53,26 @@ public class Controller {
         String[] operator = {"+", "-"};
         Random random = new Random();
         int select = random.nextInt(operator.length);
-        return getRandomNumber(min, max) + operator[select] + (getRandomNumber(min, max)) + "=";
+        return getRandomNumber(min, max) + operator[select] + (getRandomNumber(min, max));
     }
 
-    public String secondTask(int min, int max) {
+    public String secondTask(int min, int max, int secondMin, int secondMax) {
         String[] operator = {"+", "-", "*", ":"};
         Random random = new Random();
         int select = random.nextInt(operator.length);
-        return getRandomNumber(min, max) + operator[select] + (getRandomNumber(min, max)) + "=";
+        String result = null;
+        if (operator[select] == "+"){
+            result = getRandomNumber(min, max) + operator[select] + (getRandomNumber(min,max));
+        }else if(operator[select] == "-"){
+            result = getRandomNumber(min, max) + operator[select] + (getRandomNumber(min,max));
+        }else if(operator[select] == "*"){
+            result = getRandomNumber(min, max) + operator[select] + (getRandomNumber(secondMin,secondMax));
+        }else if(operator[select] == ":"){
+            result = getRandomNumber(min, max) + operator[select] + (getRandomNumber(secondMin,secondMax));
+        }
+        return result;
     }
+
+    // getRandomNumber(min, max) + operator[select] + (getRandomNumber(secondMin, secondMax))
 }
 
